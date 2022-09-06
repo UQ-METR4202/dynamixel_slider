@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>slider_publisher</name>
+  <name>dynamixel_slider</name>
   <version>1.1.1</version>
   <description>The slider_publisher package</description>
 

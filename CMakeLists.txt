@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(slider_publisher)
+project(dynamixel_slider)
 
 find_package(catkin REQUIRED COMPONENTS
   rospy
@@ -8,7 +8,8 @@ find_package(catkin REQUIRED COMPONENTS
 
 catkin_package()
 
-catkin_install_python(PROGRAMS slider_publisher examples/dummy_gazebo_server.py
-                      DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
-install(DIRECTORY examples
-      DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+catkin_install_python(PROGRAMS slider_publisher
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+install(DIRECTORY config
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})

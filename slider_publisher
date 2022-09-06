@@ -202,7 +202,7 @@ class Publisher:
         if field in self.rpy:
             self.rpy[field][axis] = val
         elif '[' in key:        
-            field, idx = key[:-1].split('[')
+            field, idx = key[:-1].split('[') 
             idx = int(idx)
             current = rgetattr(self.msg, field)
             if len(current) <= idx:
@@ -231,6 +231,8 @@ class Publisher:
             self.write('header.stamp', rospy.Time.now())
             
         if self.pub is not None:
+            self.msg.name = [ 'joint_1', 'joint_2', 'joint_3', 'joint_4' ]
+            #self.msg.velocity = [ 0.1, 0.1, 0.1, 0.1 ]
             self.pub.publish(self.msg)
         else:
             # service call, dont care about the result
@@ -358,7 +360,7 @@ if __name__ == "__main__":
     rospy.init_node('slider_publisher')
     
     # read passed param
-    filename = sys.argv[-1]
+    filename = sys.argv[1]
     if not os.path.exists(filename):
         if not rospy.has_param("~file"):
             rospy.logerr("Pass a yaml file (~file param or argument)")
